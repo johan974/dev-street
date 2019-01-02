@@ -24,14 +24,4 @@ RUN apt-get install -y curl \
   && apt-get install -y nodejs \
   && curl -L https://www.npmjs.com/install.sh | sh
 
-ENV OC_VERSION=v3.10.0  \
-  OC_TAG_SHA=dd10d17  \
-  BUILD_DEPS='tar gzip'  \
-  RUN_DEPS='curl ca-certificates gettext'
-
-RUN curl -sLo /tmp/oc.tar.gz https://github.com/openshift/origin/releases/download/${OC_VERSION}/openshift-origin-client-tools-${OC_VERSION}-${OC_TAG_SHA}-linux-64bit.tar.gz && \
-  tar xzvf /tmp/oc.tar.gz -C /tmp/ && \
-  mv /tmp/openshift-origin-client-tools-${OC_VERSION}-${OC_TAG_SHA}-linux-64bit/oc /usr/local/bin/ && \
-  rm -rf /tmp/oc.tar.gz /tmp/openshift-origin-client-tools-${OC_VERSION}-${OC_TAG_SHA}-linux-64bit
-
 user jenkins
